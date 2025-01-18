@@ -4,9 +4,11 @@ CXXFLAGS = -std=c++20 -Wall -Wextra -Werror -pedantic
 
 # Targets and files
 TARGET = main
-SRC = main.cpp Employee.cpp
+MODULES = ./modules/Employee.cpp ./modules/Database.cpp
+HEADERS = ./modules/Employee.h ./modules/Database.h
+SRC = main.cpp ${MODULES}
 OBJS = $(SRC:.cpp=.o)
-DEPS = Employee.h
+DEPS = ${HEADERS}
 
 # Default target
 all: $(TARGET)

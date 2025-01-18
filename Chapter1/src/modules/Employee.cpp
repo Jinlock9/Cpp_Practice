@@ -1,7 +1,7 @@
 #include <iostream>
 #include <format>
 
-#include "./modules/Employee.h"
+#include "Employee.h"
 
 namespace Records {
     Employee::Employee(const std::string& firstName, const std::string& lastName)
@@ -23,7 +23,6 @@ namespace Records {
         std::cout << (isHired() ? "Current Employee" : "Former Employee") << std::endl;
         std::cout << std::format("Employee Number: {}", getEmployeeNumber()) << std::endl;
         std::cout << std::format("Salary: ${}", getSalary()) << std::endl;
-        std::cout << std::endl;
     }
 
     void Employee::setFirstName(const std::string& firstName) {
