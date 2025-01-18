@@ -7,6 +7,7 @@
 #include "modules/Database.h"
 #include "modules/Employee.h"
 
+using namespace HR;
 using namespace Records;
 
 int displayMenu();
@@ -141,12 +142,29 @@ void doPromote(Database& db) {
     std::cout << "///---------------------------------///" << std::endl;
     std::cout << "/// * Employee Number      : ";
     std::cin >> employeeNumber;
-    std::cout << "/// * Salaray Raise Amount : ";
-    std::cin >> raiseAmount;
 
     try {
         auto& emp { db.getEmployee(employeeNumber) };
+
+        std::cout << "/// * Salaray Raise Amount : ";
+        std::cin >> raiseAmount;
         emp.promote(raiseAmount);
+        switch (emp.getTitle()) {
+            case Title::Junior:
+                emp.setTitle(Title::Senior);
+                std::cout << "Promoted to ";
+                emp.printTitle();
+                std::cout << std::endl;
+                break;
+            case Title::Senior:
+                emp.setTitle(Title::Manager);
+                std::cout << "Promoted to ";
+                emp.printTitle();
+                std::cout << std::endl;
+                break;
+            default:
+                break;
+        }
     } catch (const std::logic_error& e) {
         std::cerr << std::format("System Error: {}", e.what()) << std::endl; 
     }

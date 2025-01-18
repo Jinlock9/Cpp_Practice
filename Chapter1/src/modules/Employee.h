@@ -3,7 +3,9 @@
 
 #include <string>
 
-namespace Records {
+namespace HR {
+    enum class Title { Manager, Senior, Junior };
+
     const int DefaultStartingSalary { 30'000 };
     const int DefaultRaiseAndDemeritAmount { 10'000 };
 
@@ -25,6 +27,10 @@ namespace Records {
             void setLastName(const std::string& lastName);
             const std::string& getLastName() const;
 
+            void setTitle(const Title title);
+            Title getTitle() const;
+            void printTitle() const;
+
             void setEmployeeNumber(int employeeNumber);
             int getEmployeeNumber() const;
 
@@ -36,6 +42,7 @@ namespace Records {
         private:
             std::string m_firstName;
             std::string m_lastName;
+            Title m_title { Title::Junior };
             int m_employeeNumber { -1 };
             int m_salary { DefaultStartingSalary };
             bool m_hired { false };

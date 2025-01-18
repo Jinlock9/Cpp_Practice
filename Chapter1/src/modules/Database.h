@@ -6,6 +6,8 @@
 
 #include "Employee.h"
 
+using namespace HR;
+
 namespace Records {
     const int FirstEmployNumber { 1'000 };
 

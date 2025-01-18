@@ -3,7 +3,7 @@
 
 #include "Employee.h"
 
-namespace Records {
+namespace HR {
     Employee::Employee(const std::string& firstName, const std::string& lastName)
         : m_firstName { firstName }, m_lastName { lastName } {
     }
@@ -18,11 +18,14 @@ namespace Records {
     void Employee::fire() { m_hired = false; }
 
     void Employee::display() const {
-        std::cout << std::format("Employee: {}, {}", getLastName(), getFirstName()) << std::endl;
+        std::cout << std::format("Employee        : {}, {}", getLastName(), getFirstName()) << std::endl;
         std::cout << "------------------------------------" << std::endl;
         std::cout << (isHired() ? "Current Employee" : "Former Employee") << std::endl;
-        std::cout << std::format("Employee Number: {}", getEmployeeNumber()) << std::endl;
-        std::cout << std::format("Salary: ${}", getSalary()) << std::endl;
+        std::cout << "Title           : ";
+        printTitle();
+        std::cout << std::endl;
+        std::cout << std::format("Employee Number : {}", getEmployeeNumber()) << std::endl;
+        std::cout << std::format("Salary          : ${}", getSalary()) << std::endl;
     }
 
     void Employee::setFirstName(const std::string& firstName) {
@@ -37,6 +40,28 @@ namespace Records {
     }
     const std::string& Employee::getLastName() const {
         return m_lastName;
+    }
+
+    void Employee::setTitle(const Title title) {
+        m_title = title;
+    }
+
+    Title Employee::getTitle() const {
+        return m_title;
+    }
+
+    void Employee::printTitle() const {
+        switch (m_title) {
+        case Title::Manager:
+            std::cout << "Manager";
+            break;
+        case Title::Senior:
+            std::cout << "Senior";
+            break;
+        default:
+            std::cout << "Junior";
+            break;
+        }
     }
 
     void Employee::setEmployeeNumber(int employeeNumber) {
