@@ -152,15 +152,11 @@ void doPromote(Database& db) {
         switch (emp.getTitle()) {
             case Title::Junior:
                 emp.setTitle(Title::Senior);
-                std::cout << "Promoted to ";
-                emp.printTitle();
-                std::cout << std::endl;
+                std::cout << std::format("Promoted to {}", emp.getTitleString()) << std::endl;
                 break;
             case Title::Senior:
                 emp.setTitle(Title::Manager);
-                std::cout << "Promoted to ";
-                emp.printTitle();
-                std::cout << std::endl;
+                std::cout << std::format("Promoted to {}", emp.getTitleString()) << std::endl;
                 break;
             default:
                 break;

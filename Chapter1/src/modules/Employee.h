@@ -29,7 +29,7 @@ namespace HR {
 
             void setTitle(const Title title);
             Title getTitle() const;
-            void printTitle() const;
+            const std::string getTitleString() const;
 
             void setEmployeeNumber(int employeeNumber);
             int getEmployeeNumber() const;

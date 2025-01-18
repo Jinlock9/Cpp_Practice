@@ -21,9 +21,7 @@ namespace HR {
         std::cout << std::format("Employee        : {}, {}", getLastName(), getFirstName()) << std::endl;
         std::cout << "------------------------------------" << std::endl;
         std::cout << (isHired() ? "Current Employee" : "Former Employee") << std::endl;
-        std::cout << "Title           : ";
-        printTitle();
-        std::cout << std::endl;
+        std::cout << std::format("Title           : {}", getTitleString()) << std::endl;
         std::cout << std::format("Employee Number : {}", getEmployeeNumber()) << std::endl;
         std::cout << std::format("Salary          : ${}", getSalary()) << std::endl;
     }
@@ -50,18 +48,20 @@ namespace HR {
         return m_title;
     }
 
-    void Employee::printTitle() const {
+    const std::string Employee::getTitleString() const {
+        std::string title;
         switch (m_title) {
-        case Title::Manager:
-            std::cout << "Manager";
-            break;
-        case Title::Senior:
-            std::cout << "Senior";
-            break;
-        default:
-            std::cout << "Junior";
-            break;
+            case Title::Manager:
+                title = "Manager";
+                break;
+            case Title::Senior:
+                title = "Senior";
+                break;
+            default:
+                title = "Junior";
+                break;
         }
+        return title;
     }
 
     void Employee::setEmployeeNumber(int employeeNumber) {
