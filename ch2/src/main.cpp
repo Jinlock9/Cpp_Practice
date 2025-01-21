@@ -27,12 +27,80 @@ void doExample4();
 void doExample5();
 std::string_view extractExtension(std::string_view filename);
 
+// [6] String Formatting
+void doExample6();
+
+// [7] Custom Type
+void doExample7();
+
+class KeyValue {
+public:
+    KeyValue(std::string key, int value) : m_key{ std::move(key) }, m_value{ value } {}
+
+    const std::string& getKey() const { return m_key; }
+    int getValue() const { return m_value; }
+
+private:
+    std::string m_key;
+    int m_value;
+};
+
+template<>
+struct std::formatter<KeyValue> {
+    constexpr auto parse(std::format_parse_context& ctx) {
+        auto it = ctx.begin();
+        auto end = ctx.end();
+
+        if (it == end || *it == '}') {
+            m_outputType = OutputType::KeyAndValue;
+            return it;
+        }
+
+        switch (*it) {
+        case 'a':
+            m_outputType = OutputType::KeyOnly;
+            break;
+        case 'b':
+            m_outputType = OutputType::ValueOnly;
+            break;
+        case 'c':
+            m_outputType = OutputType::KeyAndValue;
+            break;
+        default:
+            throw std::format_error("Invalid KeyValue format specifier.");
+        }
+
+        ++it;
+        if (it != end && *it != '}') {
+            throw std::format_error("Invalid KeyValue format specifier.");
+        }
+        return it;
+    }
+
+    auto format(const KeyValue& kv, std::format_context& ctx) const {
+        switch (m_outputType) {
+        case OutputType::KeyOnly:
+            return std::format_to(ctx.out(), "{}", kv.getKey());
+        case OutputType::ValueOnly:
+            return std::format_to(ctx.out(), "{}", kv.getValue());
+        default:
+            return std::format_to(ctx.out(), "{} - {}", kv.getKey(), kv.getValue());
+        }
+    }
+
+private:
+    enum class OutputType { KeyOnly, ValueOnly, KeyAndValue };
+    OutputType m_outputType{ OutputType::KeyAndValue };
+};
+
 int main() {
     doExample1();
     doExample2();
     doExample3();
     doExample4();
     doExample5();
+    doExample6();
+    doExample7();
     return 0;
 }
 
@@ -217,4 +285,79 @@ void doExample5() {
 
 std::string_view extractExtension(std::string_view filename) {
     return filename.substr(filename.rfind("."));
+}
+
+void doExample6() {
+    std::cout << std::endl;
+    std::cout << "* Example 6: String Formatting" << std::endl;
+
+    int n = 4;
+    auto s1 { std::format("Read {} bytes from {}", n, "file1.txt") };
+    auto s2 { std::format("Read {0} bytes from {1}", n, "file1.txt") };
+    auto s3 { std::format("Read {1} bytes from {0}", n, "file1.txt") };
+    std::cout << s1 << std::endl;
+    std::cout << s2 << std::endl;
+    std::cout << s3 << std::endl;
+
+    // [[fill]align][sign][#][0][width][.precision][type]
+    int i { 42 };
+    // Width
+    std::cout << std::format("|{:5}|", i) << std::endl;
+    std::cout << std::format("|{:{}}|", i, 7) << std::endl;
+
+    // [fill]align
+    std::cout << std::format("|{:7}|", i) << std::endl;
+    std::cout << std::format("|{:<7}|", i) << std::endl;
+    std::cout << std::format("|{:_>7}|", i) << std::endl;
+    std::cout << std::format("|{:_^7}|", i) << std::endl;
+
+    // sign
+    std::cout << std::format("|{:<5}|", i) << std::endl;
+    std::cout << std::format("|{:<+5}|", i) << std::endl;
+    std::cout << std::format("|{:< 5}|", i) << std::endl;
+    std::cout << std::format("|{:< 5}|", -i) << std::endl;
+
+    // # type
+    std::cout << std::format("|{:10d}|", i) << std::endl;
+    std::cout << std::format("|{:10b}|", i) << std::endl;
+    std::cout << std::format("|{:#10b}|", i) << std::endl;
+    std::cout << std::format("|{:10X}|", i) << std::endl;
+    std::cout << std::format("|{:#10X}|", i) << std::endl;
+    std::string s { "ProCpp" };
+    std::cout << std::format("|{:_^10}|", s) << std::endl;
+
+    // precision
+    double d { 3.1415 / 2.3 };
+    std::cout << std::format("|{:12g}|", d) << std::endl;
+    std::cout << std::format("|{:12.2}|", d) << std::endl;
+    std::cout << std::format("|{:12e}|", d) << std::endl;
+    int width { 12 };
+    int precision { 3 };
+    std::cout << std::format("|{2:{0}.{1}f}|", width, precision, d) << std::endl;
+
+    // 0
+    std::cout << std::format("|{:06d}|", i) << std::endl;
+    std::cout << std::format("|{:+06d}|", i) << std::endl;
+    std::cout << std::format("|{:06X}|", i) << std::endl;
+    std::cout << std::format("|{:#06X}|", i) << std::endl;
+
+    // std::format_error
+    // try {
+    //     std::cout << std::format("An integer: {:.}", 5) << std::endl;
+    // } catch (const std::format_error& e) {
+    //     std::cout << e.what() << std::endl;
+    // }
+}
+
+void doExample7() {
+    std::cout << std::endl;
+    std::cout << "* Example 7: Custom Type" << std::endl;
+
+    KeyValue keyValue { "Key1", 11 };
+    std::cout << std::format("{}", keyValue) << std::endl;
+    std::cout << std::format("{:a}", keyValue) << std::endl;
+    std::cout << std::format("{:b}", keyValue) << std::endl;
+    std::cout << std::format("{:c}", keyValue) << std::endl;
+    // try { std::cout << std::format("{:cd}", keyValue) << std::endl; }
+    // catch (const std::format_error& e) { std::cout << e.what() << std::endl; }
 }
