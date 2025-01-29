@@ -7,3 +7,4 @@ Practicing C++, especially C++ 20, referring to **Professional C++ 5th Edition**
 - **Ch3**: Coding Style
 - **Ch4**: Professional C++ Program Design
 - **Ch5**: Object-Oriented Design 
+- **Ch6**: Reusable Design

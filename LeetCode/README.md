@@ -18,10 +18,10 @@
 - s1: Length of Last Word
 - s2: To Lower Case
 #### Simulation `Simulations`
-- s1:
-- s2:
-- s3:
-- s4: 
+- s1: Baseball Game
+- s2: Robot Return to Origin
+- s3: Find Winner on a Tic Tac Toe Game
+- s4: Robot Bounded In Circle
 #### Matrix
 #### Math
 #### Linked List
