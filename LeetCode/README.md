@@ -15,7 +15,13 @@
 - s10: Monotonic Array
 - s11: Roman to Integer
 #### Built-In Functions `Built-Ins`
-#### Simulation
+- s1: Length of Last Word
+- s2: To Lower Case
+#### Simulation `Simulations`
+- s1:
+- s2:
+- s3:
+- s4: 
 #### Matrix
 #### Math
 #### Linked List
