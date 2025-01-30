@@ -22,6 +22,10 @@
 - s2: Robot Return to Origin
 - s3: Find Winner on a Tic Tac Toe Game
 - s4: Robot Bounded In Circle
-#### Matrix
+#### Matrix `Matrix`
+- s1: Richest Customer Wealth
+- s2: Matrix Diagonal Sum
+- s3: Spiral Matrix
+- s4: Set Matrix Zeroes
 #### Math
 #### Linked List
