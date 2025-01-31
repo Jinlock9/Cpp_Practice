@@ -34,6 +34,10 @@
 - s4: Largest Perimeter Triangle
 - s5: Check If It Is a Straight Line
 - s6: Add Binary
-- s7: Multiply Strings [Need_Review]
+- s7: Multiply Strings [NEED_REVIEW]
 - s8: Pow(x, n)
-#### Linked List
+#### Linked List [NEED_REVIEW]
+- s1: Merge Two Sorted Lists
+- s2: Reverse Linked List
+- s3: Add Two Numbers
+- s4: Add Two Numbers II
