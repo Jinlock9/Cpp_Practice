@@ -27,5 +27,13 @@
 - s2: Matrix Diagonal Sum
 - s3: Spiral Matrix
 - s4: Set Matrix Zeroes
-#### Math
+#### Math `Math`
+- s1: Count Odd Numbers in an Interval Range
+- s2: Average Salary Excluding the Minimum and Maximum Salary
+- s3: Lemonade Change
+- s4: Largest Perimeter Triangle
+- s5: Check If It Is a Straight Line
+- s6: Add Binary
+- s7: Multiply Strings [Need_Review]
+- s8: Pow(x, n)
 #### Linked List
