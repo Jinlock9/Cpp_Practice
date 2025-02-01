@@ -41,3 +41,15 @@
 - s2: Reverse Linked List
 - s3: Add Two Numbers
 - s4: Add Two Numbers II
+
+### Interview Prep `Interview`
+#### Array / String `ArrString`
+- s1: Merge Sorted Array
+- s2: Remove Element
+- s3:
+- s4:
+- s5:
+#### Two Pointers `TwoPointers`
+- s1:
+- s2:
+- s3:
