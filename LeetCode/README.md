@@ -46,9 +46,11 @@
 #### Array / String `ArrString`
 - s1: Merge Sorted Array
 - s2: Remove Element
-- s3:
-- s4:
-- s5:
+- s3: Remove Duplicates from Sorted Array
+- s4: Remove Duplicates from Sorted Array II
+- s5: Majority Element
+- s6: Rotate Array
+- s7:
 #### Two Pointers `TwoPointers`
 - s1:
 - s2:
