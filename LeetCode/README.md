@@ -50,7 +50,14 @@
 - s4: Remove Duplicates from Sorted Array II
 - s5: Majority Element
 - s6: Rotate Array
-- s7:
+- s7: Best Time to Buy and Sell Stock
+- s8: Best Time to Buy and Sell Stock II
+- s9: Jump Game
+- s10: Jump Game II
+- s11:
+- s12:
+- s13:
+- s14:
 #### Two Pointers `TwoPointers`
 - s1:
 - s2:
