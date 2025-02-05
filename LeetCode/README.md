@@ -54,8 +54,8 @@
 - s8: Best Time to Buy and Sell Stock II
 - s9: Jump Game
 - s10: Jump Game II
-- s11:
-- s12:
+- s11: H-Index
+- s12: Insert Delete GetRandom O(1)
 - s13:
 - s14:
 #### Two Pointers `TwoPointers`
