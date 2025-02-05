@@ -9,3 +9,5 @@ Practicing C++, especially C++ 20, referring to **Professional C++ 5th Edition**
 - **Ch5**: Object-Oriented Design 
 - **Ch6**: Reusable Design
 - **Ch7**: Memory Management
+- **Ch8**: Understanding Class and Object
+
