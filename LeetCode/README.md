@@ -57,7 +57,9 @@
 - s11: H-Index
 - s12: Insert Delete GetRandom O(1)
 - s13: Product of Array Except Self
-- s14:
+- s14: Gas Station
+- s15: Candy 
+- s16:
 #### Two Pointers `TwoPointers`
 - s1:
 - s2:
